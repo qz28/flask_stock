@@ -14,7 +14,7 @@ def index():
 
 @app.route('/post_stock',methods=['POST'])
 def post_stock():
-  ticker=str(request.form['stock_ticker'])
+  ticker=str(request.form['search'])
   price=str(request.form.get('type_select'))
   adjust_or_not=str(request.form.get('adj_select'))
   if adjust_or_not=='default':

@@ -3,25 +3,31 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Hello, World!</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
 	</head>
 	<body>
-		<form class="form-inline" method="post" action="/post_stock">
-                       <label>StockTicker:</label>
-                       <input id="stock_ticker" name="stock_ticker" type="text" />
+		<h1> A Stock Search Bar</h1>
+        <p> Use the stock ticker to find an interative plot of related time series data</p>
+		<form class="form-inline" method="post" action="/post_stock"></p>
+				<div class="row">
+                <p class="s"><input name="search" id="search" type="search">
+				</div>
+				<div class="row">
+				<div class='select_style'>
                        <select id="type_select" name="type_select" class="selectpicker form-control">
                              {% for o in data %}
                              <option value="{{ o.name }}">{{ o.name }}</option>
                              {% endfor %}
                        </select>
+			    </div>
+				<div class='select_style'>
                        <select id="adj_select" name="adj_select" class="selectpicker form-control">
                              {% for o in adj %}
                              <option value="{{ o.name }}">{{ o.name }}</option>
                              {% endfor %}
                        </select>
-                       <button type="submit" class="btn btn-default">Go</button>
-                </form> 
+				</div>
+				</div>
+        </form>		
 	</body>
 </html>
